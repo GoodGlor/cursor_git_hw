@@ -26,6 +26,7 @@ f"Type 'lst_d': {isinstance(lst_d, list)}\nType 'dict_e': {isinstance(dict_e, tu
 
 
 # 5 - 11
+print("Anna has {} apples and {} peaches.".format(1, 4))
 
 print("Anna has {0} apples and {1} peaches.".format(1, 4))
 
@@ -33,7 +34,9 @@ print("Anna has {ten} apples and {tow} peaches.".format(ten=10, tow=2))
 
 print("Anna has {0:5} apples and {1:3} peaches.".format( 'five', 'four'))
 
-print(f"Anna has {0} apples and {2} peaches.")
+apples = 4
+peaches = 6
+print(f"Anna has {apples} apples and {peaches} peaches.")
 
 print(f"Anna has %s apples and %s peaches." % (5, 9))
 
