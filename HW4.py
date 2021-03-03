@@ -34,26 +34,23 @@ class School:
         self.get_school_id = get_school_id
         self.number_of_students = number_of_students
 
-    def lnu(self):
-        print(f'Your school id is {self.get_school_id} and your school have {self.number_of_students} students')
-
-
-class SchoolBus(School):
-    def __init__(self, get_school_id, number_of_students, bus_school_color):
+class SchoolBus(School, Bus):
+    def __init__(self, max_speed, mileage, seat_cap, get_school_id, number_of_students, bus_school_color):
+        self.max_speed = max_speed
+        self.mileage = mileage
+        self.seat_cap = seat_cap
         self.get_school_id = get_school_id
         self.number_of_students = number_of_students
         self.bus_school_color = bus_school_color
-        super().__init__(get_school_id, number_of_students)
 
     def about_school(self):
-        print(
-            f'Id school is {self.get_school_id} in your school {self.number_of_students} and '
-            f'this school has {self.bus_school_color} color')
+        print(f' Max_speed is: {self.max_speed}\n Mileage is: {self.mileage}\n Seat_cap is: {self.seat_cap}\n '
+              f'Get_school_id is: {self.get_school_id}\n Number_of_students is: {self.number_of_students} \n'
+              f' Bus_school_color is: {self.bus_school_color}')
 
 
-zosh = SchoolBus(1, 431, 'red')
-zosh.lnu()
-zosh.about_school()
+schobus = SchoolBus(80, 12345, 45, 0, 987, 'red')
+schobus.about_school()
 
 
 # 7
