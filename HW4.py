@@ -21,6 +21,8 @@ class Bus(Vehicle):
         print(f'My has max speed {self.max_speed}, mileage {self.mileage} and seat capacity {self.seat_cap}')
 
 
+print(issubclass(Bus, Vehicle))
+print(type(Bus))
 School_bus = Bus(220, 1262, '45')
 School_bus.seating_capacity()
 
