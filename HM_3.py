@@ -162,6 +162,8 @@ def  com (variable):
 common_list = list(filter(com,list_1))
 print(common_list)
 
+# common_list = list(filter(lambda h: h in list_1, list_2))
+# print(common_list)
 
 
 
