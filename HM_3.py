@@ -59,7 +59,6 @@ for num in range(10):
 print(list_comprehension)
 
 
-print(' ')
 
 # 14 - 15
 
