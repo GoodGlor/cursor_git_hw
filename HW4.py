@@ -142,5 +142,23 @@ print(total(11,1))
 
 # 12
 
+class MyOrder:
+    def __init__(self, cart, customer):
+        self.cart = cart
+        self.customer = customer
+
+    def __bool__(self):
+        if len(list(self.cart)) != 0:
+            return True
+        else:
+            return False
+
+    def __str__(self):
+        return f'{self.cart}'
 
 
+order_1 = MyOrder(['a', 'b', 'c'], 'd')
+order_2 = MyOrder([], 'a')
+
+print(bool(order_1))
+print(bool(order_2))
