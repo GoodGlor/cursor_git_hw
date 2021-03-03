@@ -32,7 +32,7 @@ print("Anna has {0} apples and {1} peaches.".format(1, 4))
 
 print("Anna has {ten} apples and {tow} peaches.".format(ten=10, tow=2))
 
-print("Anna has {0:5} apples and {1:3} peaches.".format( 'five', 'four'))
+print("Anna has {0:5} apples and {1:3} peaches.".format(5, 4))
 
 apples = 4
 peaches = 6
