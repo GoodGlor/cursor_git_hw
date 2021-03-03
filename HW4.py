@@ -85,9 +85,62 @@ for animals in (jojo, dio):
     animals.about_me()
     animals.sound()
 
-# 8
+# 8 - 9
 
 class City:
-    def __init__(self, name, ):
-        pass
+    def __init__(self, name, population):
+        self.name = name
+        self.population = population
+
+    def __new__(cls, name, population):
+        instanced = super(City, cls).__new__(cls)
+        if population > 1500:
+            return instanced
+        else:
+            print('Your city is too small')
+
+    def __str__(self):
+        return f'{self.__class__.__name__} {self.__dict__}'
+
+
+city = City('Odessa', 1800)
+print(city)
+
+# 10
+
+
+class Add:
+    def __init__(self, num):
+        self.num = num
+
+    def __add__(self, other):
+        if self.num > 10:
+            total = self.num * other.num
+
+        return Add(total)
+
+    def __str__(self):
+        return f'Additional: {self.num}'
+
+
+a_1 = Add(20)
+a_2 = Add(2)
+a = a_1 + a_2
+print(a)
+
+
+# 11
+
+class Total:
+    def __call__(self, x, z):
+        k = x + z
+        return k
+
+
+total = Total()
+print(total(11,1))
+
+# 12
+
+
 
