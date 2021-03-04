@@ -30,3 +30,28 @@ class GuitarString:
 
 strings_for_guitar = GuitarString()
 guitar = Guitar(strings_for_guitar)
+
+# 3
+
+class Calc:
+    def add_nums(self, a, b, c):
+        total = a + b + c
+        return total
+
+
+obj = Calc()
+print(obj.add_nums(1, 1, 1))
+
+
+# 4
+
+class Pasta:
+    def __init__(self, lst_ingts):
+        self.lst_ingts = lst_ingts
+
+    def carbonara(self):
+        pass
+
+    def bolognaise(self):
+        pass
+
