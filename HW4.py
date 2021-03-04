@@ -11,8 +11,6 @@ class Vehicle:
 
 class Bus(Vehicle):
     def __init__(self, max_speed, mileage, seat_cap):
-        self.max_speed = max_speed
-        self.mileage = mileage
         self.seat_cap = seat_cap
 
         super().__init__(max_speed, mileage)
@@ -21,10 +19,10 @@ class Bus(Vehicle):
         print(f'My has max speed {self.max_speed}, mileage {self.mileage} and seat capacity {self.seat_cap}')
 
 
-print(issubclass(Bus, Vehicle))
+school_bus = Bus(220, 1262, '45')
 print(type(Bus))
-School_bus = Bus(220, 1262, '45')
-School_bus.seating_capacity()
+print(isinstance(school_bus, Vehicle))
+print(issubclass(Bus, Vehicle))
 
 
 # 5 - 6
@@ -34,14 +32,12 @@ class School:
         self.get_school_id = get_school_id
         self.number_of_students = number_of_students
 
+
 class SchoolBus(School, Bus):
     def __init__(self, max_speed, mileage, seat_cap, get_school_id, number_of_students, bus_school_color):
-        self.max_speed = max_speed
-        self.mileage = mileage
-        self.seat_cap = seat_cap
-        self.get_school_id = get_school_id
-        self.number_of_students = number_of_students
         self.bus_school_color = bus_school_color
+        Bus.__init__(self, max_speed, mileage, seat_cap)
+        School.__init__(self, get_school_id, number_of_students)
 
     def about_school(self):
         print(f' Max_speed is: {self.max_speed}\n Mileage is: {self.mileage}\n Seat_cap is: {self.seat_cap}\n '
@@ -96,7 +92,7 @@ class City:
         if population > 1500:
             return instanced
         else:
-            print('Your city is too small')
+            return 'Your city is too small'
 
     def __str__(self):
         return f'{self.__class__.__name__} {self.__dict__}'
