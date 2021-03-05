@@ -46,12 +46,41 @@ print(obj.add_nums(1, 1, 1))
 # 4
 
 class Pasta:
-    def __init__(self, lst_ingts):
-        self.lst_ingts = lst_ingts
 
-    def carbonara(self):
-        pass
+    def __init__(self, ingredients):
+        self.ingredients = ingredients
 
-    def bolognaise(self):
-        pass
+    @staticmethod
+    def carbonara():
+        return Pasta(['forcemeat', 'tomatoes'])
+
+    @staticmethod
+    def bolognaise():
+        return Pasta(['bacon', 'parmesan', 'eggs'])
+
+
+# 5
+
+class Concert:
+    max_visitors_num = 0
+
+    def __init__(self, visitors_count=0):
+        self._visitors_count = visitors_count
+
+    @property
+    def count(self):
+        return self._visitors_count
+
+    @count.setter
+    def count(self, visitors_count):
+        if visitors_count > self.max_visitors_num:
+            self._visitors_count = self.max_visitors_num
+        else:
+            self._visitors_count = visitors_count
+
+
+Concert.max_visitors_num = 50
+concert = Concert()
+concert.count = 1000
+print(concert.count)
 
