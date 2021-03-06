@@ -84,3 +84,155 @@ concert = Concert()
 concert.count = 1000
 print(concert.count)
 
+# 6
+import dataclasses
+
+
+@dataclasses.dataclass
+class AddressBookDataClass:
+    key: int
+    name: str
+    phone_number: str
+    address: str
+    email: str
+    birthday: str
+    age: int
+
+
+# 7
+
+import collections
+
+AdsBDataClass = collections.namedtuple('AddressBookDataClass', {'key', 'name', 'phone_number', 'address',
+                                                                'email', 'birthday', 'age'})
+
+
+# 8
+
+class AddressBook:
+
+    def __init__(self, key=None, name=None, phone_number=None, address=None, email=None, birthday=None, age=None):
+
+        self.__key = key
+        self.__name = name
+        self.__phone_number = phone_number
+        self.__address = address
+        self.__email = email
+        self.__birthday = birthday
+        self.__age = age
+
+    @property
+    def key(self):
+        return self.__key
+
+    @property
+    def name(self):
+        return self.__name
+
+    @property
+    def phone_number(self):
+        return self.__phone_number
+
+    @property
+    def address(self):
+        return self.__address
+
+    @property
+    def email(self):
+        return self.__email
+
+    @property
+    def birthday(self):
+        return self.__birthday
+
+    @property
+    def age(self):
+        return self.__age
+
+    @key.setter
+    def key(self, x):
+        if not isinstance(x, str):
+            return False
+        else:
+            self.__key = x
+
+    @address.setter
+    def address(self, x):
+        if not isinstance(x, str):
+            return False
+        else:
+            self.__address = x
+
+    @email.setter
+    def email(self, x):
+        if not isinstance(x, str):
+            return False
+        else:
+            self.__email = x
+
+    @birthday.setter
+    def birthday(self, x):
+        if not isinstance(x, str):
+            return False
+        else:
+            self.__birthday = x
+
+    @age.setter
+    def age(self, x):
+        if not isinstance(x, str):
+            return False
+        else:
+            self.__age = x
+
+
+# 9
+class Person:
+    name = "John"
+    age = 36
+    country = "USA"
+
+
+person = Person()
+
+setattr(person, 'age', 10)
+print(person.age)
+
+
+# 10
+
+class Student:
+    id = 0
+    name = ""
+
+    def __init__(self, id, name):
+        self.id = id
+        self.name = name
+
+
+student = Student(10, 'Anna')
+
+setattr(student, 'email', 'anna@cursor.com')
+setattr(student, 'student_email', 'jojo@cursor.com')
+print(getattr(student, 'student_email'))
+
+
+# 11
+
+class Celsius:
+
+    def __init__(self, temperature=0):
+        self._temperature = temperature
+
+    @property
+    def temperature(self):
+        return self._temperature
+
+    @temperature.setter
+    def temperature(self, x):
+        self._temperature = (x * 1.8) + 32
+
+
+obj = Celsius()
+obj.temperature = 20
+print(obj.temperature)
+
