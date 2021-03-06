@@ -111,78 +111,19 @@ AdsBDataClass = collections.namedtuple('AddressBookDataClass', {'key', 'name', '
 
 class AddressBook:
 
-    def __init__(self, key=None, name=None, phone_number=None, address=None, email=None, birthday=None, age=None):
+    def __init__(self, key, name, phone_number, address, email, birthday, age):
+        self.key = key
+        self.name = name
+        self.phone_number = phone_number
+        self.address = address
+        self.email = email
+        self.birthday = birthday
+        self.age = age
 
-        self.__key = key
-        self.__name = name
-        self.__phone_number = phone_number
-        self.__address = address
-        self.__email = email
-        self.__birthday = birthday
-        self.__age = age
+    def __str__(self):
+        return f'AddressBook (key= {self.key} name= {self.name} phone_number= {self.phone_number} ' \
+               f'address= {self.address} email= {self.email} birthday= {self.birthday} age= {self.age}'
 
-    @property
-    def key(self):
-        return self.__key
-
-    @property
-    def name(self):
-        return self.__name
-
-    @property
-    def phone_number(self):
-        return self.__phone_number
-
-    @property
-    def address(self):
-        return self.__address
-
-    @property
-    def email(self):
-        return self.__email
-
-    @property
-    def birthday(self):
-        return self.__birthday
-
-    @property
-    def age(self):
-        return self.__age
-
-    @key.setter
-    def key(self, x):
-        if not isinstance(x, str):
-            return False
-        else:
-            self.__key = x
-
-    @address.setter
-    def address(self, x):
-        if not isinstance(x, str):
-            return False
-        else:
-            self.__address = x
-
-    @email.setter
-    def email(self, x):
-        if not isinstance(x, str):
-            return False
-        else:
-            self.__email = x
-
-    @birthday.setter
-    def birthday(self, x):
-        if not isinstance(x, str):
-            return False
-        else:
-            self.__birthday = x
-
-    @age.setter
-    def age(self, x):
-        if not isinstance(x, str):
-            return False
-        else:
-            self.__age = x
 
 
 # 9
