@@ -80,26 +80,24 @@ for animals in (jojo, dio):
     animals.about_me()
     animals.sound()
 
-# 8 - 9
-
-class City:
+# 8
+ class City:
     def __init__(self, name, population):
         self.name = name
         self.population = population
 
     def __new__(cls, name, population):
         instanced = super(City, cls).__new__(cls)
-        if population > 1500:
-            return instanced
-        else:
-            return 'Your city is too small'
+        return instanced if population > 1500 else 'Your city is too small'
 
+# 9
     def __str__(self):
-        return f'{self.__class__.__name__} {self.__dict__}'
+        return f'The population of the city {self.name} is {self.population}'
 
 
 city = City('Odessa', 1800)
 print(city)
+
 
 # 10
 
@@ -109,16 +107,10 @@ class Add:
         self.num = num
 
     def __add__(self, other):
-        if self.num > 10:
-            total = self.num * other.num
-
-        return Add(total)
-
-    def __str__(self):
-        return f'Additional: {self.num}'
+        return self.num * other.num if self.num > 10 else self.num + other.num
 
 
-a_1 = Add(20)
+a_1 = Add(11)
 a_2 = Add(2)
 a = a_1 + a_2
 print(a)
