@@ -31,16 +31,14 @@ class GuitarString:
 strings_for_guitar = GuitarString()
 guitar = Guitar(strings_for_guitar)
 
-# 3
+# 3 
 
 class Calc:
-    def add_nums(self, a, b, c):
-        total = a + b + c
-        return total
 
+    @staticmethod
+    def add_nums(a, b, c):
+        return a + b + c
 
-obj = Calc()
-print(obj.add_nums(1, 1, 1))
 
 
 # 4
@@ -141,6 +139,7 @@ print(person.age)
 
 # 10
 
+
 class Student:
     id = 0
     name = ""
@@ -151,10 +150,10 @@ class Student:
 
 
 student = Student(10, 'Anna')
+student.email = 'jojo@cursor.com'
+setattr(student, student.email, 'jojo@cursor.com')
+print(getattr(student, student.email))
 
-setattr(student, 'email', 'anna@cursor.com')
-setattr(student, 'student_email', 'jojo@cursor.com')
-print(getattr(student, 'student_email'))
 
 
 # 11
@@ -164,16 +163,11 @@ class Celsius:
     def __init__(self, temperature=0):
         self._temperature = temperature
 
-    @property
     def temperature(self):
-        return self._temperature
-
-    @temperature.setter
-    def temperature(self, x):
-        self._temperature = (x * 1.8) + 32
+        return (self._temperature * 1.8) + 32
 
 
-obj = Celsius()
-obj.temperature = 20
+obj = Celsius(25)
+
 print(obj.temperature)
 
