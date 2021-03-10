@@ -63,18 +63,19 @@ class Concert:
     max_visitors_num = 0
 
     def __init__(self, visitors_count=0):
-        self._visitors_count = visitors_count
+        self.visitors_count = visitors_count
 
     @property
     def visitors_count(self):
         return self._visitors_count
 
     @visitors_count.setter
-    def count(self, visitors_count):
+    def visitors_count(self, visitors_count):
         if visitors_count > self.max_visitors_num:
             self._visitors_count = self.max_visitors_num
         else:
             self._visitors_count = visitors_count
+
 
 # 6
 import dataclasses
