@@ -66,21 +66,15 @@ class Concert:
         self._visitors_count = visitors_count
 
     @property
-    def count(self):
+    def visitors_count(self):
         return self._visitors_count
 
-    @count.setter
+    @visitors_count.setter
     def count(self, visitors_count):
         if visitors_count > self.max_visitors_num:
             self._visitors_count = self.max_visitors_num
         else:
             self._visitors_count = visitors_count
-
-
-Concert.max_visitors_num = 50
-concert = Concert()
-concert.count = 1000
-print(concert.count)
 
 # 6
 import dataclasses
@@ -162,7 +156,8 @@ class Celsius:
 
     def __init__(self, temperature=0):
         self._temperature = temperature
-
+	
+    @property
     def temperature(self):
         return (self._temperature * 1.8) + 32
 
