@@ -284,27 +284,25 @@ class Pest(Pests):
     def about(self):
         return f"Type of insect: '{self.pests_type}' their  quantity: {self.quantity}"
 
-
 tomato_bush = TomatoBush(5)
 apple_tree = AppleTree(6)
-worm = Pest('worm', 10, [tomato_bush, apple_tree])
-bag = Pest('bag', 9, [tomato_bush, apple_tree])
-tom = StarGardener('Tom', [tomato_bush, apple_tree], [worm, bag])
+Dio = Pest('dio', 10, [tomato_bush, apple_tree])
+Enriko_Putchi= Pest('Enriko_Putchi', 9, [tomato_bush, apple_tree])
+Jojo = StarGardener('Josefu_Josuta', [tomato_bush, apple_tree], [Enriko_Putchi, Dio])
 
 garden = Garden(tomato_bush.stat_list(), apple_tree.stat_list(),
-                pests=[f"{worm.about()}. {bag.about()}"], gardener=tom.name)
+                pests=[f"{Dio.about()}. {Enriko_Putchi.about()}"], gardener=Jojo.name)
 
 garden.show_the_garden()
 
-state = tom.check_states()
+state = Jojo.check_states()
 
-worm.eat()
-bag.eat()
-tom.poison_pests()
+Dio.eat()
+Enriko_Putchi.eat()
+Jojo.poison_pests()
 
 if not state:
-    tom.handling()
+    Jojo.handling()
 for index in range(3):
-    tom.handling()
-    tom.harvest()
-
+    Jojo.handling()
+    Jojo.harvest()
