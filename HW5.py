@@ -2,15 +2,15 @@
 
 class Laptop:
     def __init__(self):
-        battery_1 = Battery('Nickel Cadmium')
-        battery_2 = Battery('Nickel Metal Hydride')
-        battery_3 = Battery('Lithium Io')
-        self.batterys = [battery_1, battery_2, battery_3]
+        nickel_cadmium = Battery('Nickel Cadmium')
+        nickel_metal_hydride = Battery('Nickel Metal Hydride')
+        lithium_io = Battery('Lithium Io')
+        self.batterys = [nickel_cadmium, nickel_metal_hydride, lithium_io]
 
 
 class Battery:
-    def __init__(self, type):
-        self.type = type
+    def __init__(self, types):
+        self.type = types
 
 
 laptop = Laptop()
@@ -19,17 +19,16 @@ laptop = Laptop()
 # 2
 
 class Guitar:
-    def __init__(self, types):
-        self.types = types
+    def __init__(self, types_strings):
+        self.types_strings = types_strings
 
 
 class GuitarString:
-    def __init__(self):
-        pass
+    pass
 
 
-strings_for_guitar = GuitarString()
-guitar = Guitar(strings_for_guitar)
+string = GuitarString()
+guitar = Guitar(string)
 
 # 3 
 
@@ -56,7 +55,6 @@ class Pasta:
     def bolognaise():
         return Pasta(['bacon', 'parmesan', 'eggs'])
 
-
 # 5
 
 class Concert:
@@ -70,11 +68,11 @@ class Concert:
         return self._visitors_count
 
     @visitors_count.setter
-    def visitors_count(self, visitors_count):
-        if visitors_count > self.max_visitors_num:
+    def visitors_count(self, new_count):
+        if new_count > self.max_visitors_num:
             self._visitors_count = self.max_visitors_num
         else:
-            self._visitors_count = visitors_count
+            self._visitors_count = new_count
 
 
 # 6
