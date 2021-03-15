@@ -56,12 +56,11 @@ class Pasta:
         return Pasta(['bacon', 'parmesan', 'eggs'])
 
 # 5
-
 class Concert:
     max_visitors_num = 0
 
     def __init__(self, visitors_count=0):
-        self.visitors_count = visitors_count
+        self._visitors_count = visitors_count
 
     @property
     def visitors_count(self):
@@ -69,10 +68,13 @@ class Concert:
 
     @visitors_count.setter
     def visitors_count(self, new_count):
+        print('seter')
+
         if new_count > self.max_visitors_num:
             self._visitors_count = self.max_visitors_num
         else:
             self._visitors_count = new_count
+
 
 
 # 6
@@ -132,7 +134,6 @@ print(person.age)
 
 # 10
 
-
 class Student:
     id = 0
     name = ""
@@ -143,10 +144,9 @@ class Student:
 
 
 student = Student(10, 'Anna')
-student.email = 'jojo@cursor.com'
-setattr(student, student.email, 'jojo@cursor.com')
-print(getattr(student, student.email))
-
+student.email = 'tema@cursor.com'
+stud_email = getattr(student, 'email')
+print(stud_email)
 
 
 # 11
