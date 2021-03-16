@@ -30,16 +30,6 @@ class Garden(metaclass=GardenMetaClass):
         print(f'And such pests: {self.pests}')
         print(f'The maintainer of the garden is {self.gardener}')
 
-
-@dataclasses.dataclass()
-class PlantsStates:
-    nothing: int
-    flowering: int
-    green: int
-    red: int
-    rotten: int
-
-
 class Vegetables(ABC):
     def __init__(self, states, vegetable_type, name):
         self.states = states
@@ -292,7 +282,7 @@ Jojo = StarGardener('Josefu_Josuta', [tomato_bush, apple_tree], [Enriko_Putchi, 
 
 garden = Garden(tomato_bush.stat_list(), apple_tree.stat_list(),
                 pests=[f"{Dio.about()}. {Enriko_Putchi.about()}"], gardener=Jojo.name)
-
+Jojo.handling()
 garden.show_the_garden()
 
 state = Jojo.check_states()
