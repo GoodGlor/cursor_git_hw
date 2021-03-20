@@ -37,7 +37,7 @@ class Herbivores(Animal):
         return f'{self.name} power {self.power} speed {self.speed}'
 
     def eat(self, forest: Forest):
-        print(f'Eating grass {self.name} ')
+        print(f'{self.name} eating grass ')
         self.power += round(self.power * 0.5)
         if self.power > 100:
             self.power -= (self.power - 100)
@@ -51,36 +51,36 @@ class Predator(Animal):
         return f'{self.name} power {self.power} speed {self.speed}'
 
     def eat(self, forest: Forest):
-        # choose_anml = random.choice(list(forest.animals.values()))
+        # for predator_choose in forest.animals.values():
+            predator_choose = random.choice(list(forest.animals.values()))
 
-
-        if choose_anml.id == self.id:
-            return False
-        print(f'---- {self.name} Found {choose_anml.name} ----')
-        if choose_anml.speed > self.speed:
-            print('Did not catch up')
-            self.power -= (round(self.power * 0.3))
-            choose_anml.power -= round(choose_anml.power * 0.3)
-            return False
-        if choose_anml.power <= 1:
-            forest.remove_animal()
-        if self.power <= 1:
-            forest.remove_animal()
-        if self.speed > choose_anml.speed:
-            if self.power > choose_anml.power:
-                print(f'{self.name} fight with {choose_anml.name}')
-                choose_anml.power -= round(choose_anml.power * 0.3)
-                self.power += (round(self.power * 0.5))
-                if self.power > 100:
-                    self.power -= (self.power - 100)
-            else:
+            if predator_choose.id == self.id:
+                return False
+            print(f'---- {self.name} Found {predator_choose.name} ----')
+            if predator_choose.speed > self.speed:
+                print('Did not catch up')
                 self.power -= (round(self.power * 0.3))
-            if choose_anml.power <= 1:
+                predator_choose.power -= round(predator_choose.power * 0.3)
+                return False
+            if predator_choose.power <= 1:
                 forest.remove_animal()
             if self.power <= 1:
                 forest.remove_animal()
-        else:
-            return False
+            if self.speed > predator_choose.speed:
+                if self.power > predator_choose.power:
+                    print(f'{self.name} fight with {predator_choose.name}')
+                    predator_choose.power -= round(predator_choose.power * 0.3)
+                    self.power += (round(self.power * 0.5))
+                    if self.power > 100:
+                        self.power -= (self.power - 100)
+                else:
+                    self.power -= (round(self.power * 0.3))
+                if predator_choose.power <= 1:
+                    forest.remove_animal()
+                if self.power <= 1:
+                    forest.remove_animal()
+            else:
+                return False
 
 
 class Forest:
@@ -92,20 +92,21 @@ class Forest:
         return self.animals.update({animal.id: animal})
 
     def remove_animal(self):
-        return self.animals.pop(animal.id)
+        key = [key for key in self.animals]
+        return self.animals.pop(key)
 
     def any_predator(self):
-        chek = [False if isinstance(x, Predator) else True for x in self.animals.values()]
-        return all(chek)
+        check = [False if isinstance(predator, Predator) else True for predator in self.animals.values()]
+        return all(check)
 
     def all_state(self):
         predators = 0
         herbivorus = 0
-        for x in self.animals.values():
-            if isinstance(x, Predator):
-                predators+=1
+        for calculate in self.animals.values():
+            if isinstance(calculate, Predator):
+                predators += 1
             else:
-                herbivorus+=1
+                herbivorus += 1
 
         return f'In forest {predators} predators an {herbivorus} herbivores and such animals ' \
                f'{[stat.state(forest=forest) for stat in self.animals.values()]}'
@@ -114,7 +115,8 @@ class Forest:
         return self
 
     def __next__(self):
-        return self.animals
+        random_animal = random.choice(list(self.animals.values()))
+        return random_animal
 
 
 def animal_generator():
@@ -129,14 +131,16 @@ def animal_generator():
 nature = animal_generator()
 
 forest = Forest()
-for i in range(6):
+for i in range(3):
     animal = next(nature)
     forest.add_animal(animal)
+print(forest.animals.items())
+
 while True:
     if forest.any_predator():
         break
-    for x in forest.animals.values():
-        x.eat(forest=forest)
-        print(forest.all_state())
+    for animals in forest:
+        animals.eat(forest=forest)
+        # print(forest.all_state())
 
     time.sleep(1)
