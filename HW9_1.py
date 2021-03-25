@@ -44,7 +44,11 @@ class Calculator:
                     continue
 
             elif self.action == '**':
-                Calculator.exponentiation(self)
+                try:
+                    Calculator.exponentiation(self)
+                except ZeroDivisionError:
+                    logging.error('ZeroDivisionError', exc_info=True)
+                    print('Try enter number greater 0')
 
             elif self.action == '^':
                 try:
