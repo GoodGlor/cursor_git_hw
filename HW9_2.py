@@ -42,8 +42,8 @@ class VacuumCleaner:
                 break
             except Battery20:
                 print('Boss i need your help. Charge me')
-                if self.level_water or self.level_trash:
-                    print('Full of trash and no water')
+                if VacuumCleaner.wash(self) == False and VacuumCleaner.vacuum_cleaner(self) == False:
+                    print("I don't have neither water not space for trash ")
                     break
 
     def wash(self):
