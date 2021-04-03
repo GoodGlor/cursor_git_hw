@@ -85,7 +85,7 @@ class TestRegistration(unittest.TestCase):
     reg = Registration()
 
     def test_user_name(self):
-        names = ['arTEM', 'asd123', '123456', '@!&^%', 1234, 1.2123, ' ']
+        names = ['asd123', '123456', '@!&^%', 1234, 1.2123, ' ']
         for name in names:
             with mock.patch('builtins.input', return_value=name):
                 print(name)
