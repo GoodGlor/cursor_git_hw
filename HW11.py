@@ -28,7 +28,6 @@ def only_odd_parameters(func):
 def add(a, b):
     return a + b
 
-
 # Task 3
 
 from functools import wraps
@@ -41,11 +40,11 @@ logging.basicConfig(level=logging.DEBUG, format=log_template)
 
 def logged(func):
     @wraps(func)
-    def inner(*args):
+    def inner(*args, **kwargs):
         logging.info(f'Calling function {func.__name__}')
-        result = func(*args)
-        logging.info(f'You input {len(args)} arguments. ')
-        logging.info(f'Result {3 + len(args)}')
+        result = func(*args, **kwargs)
+        logging.info(f'You input {len(args) + len(kwargs)} arguments. ')
+        logging.info(f'Result {func(*args, **kwargs)}')
         logging.info(f'Finish {func.__name__}')
         return result
 
